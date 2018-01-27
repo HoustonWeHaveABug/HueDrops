@@ -1,0 +1,12 @@
+10 10
+. . . * O G Y . . .
+. . . V B O O . . .
+. . . V R G Y . . .
+R O G V B V B R B O
+V B B O R B V R Y V
+B G G Y O B Y Y Y Y
+B G O B G Y Y R R G
+. . . O B . V . . .
+. . . V Y G O . . .
+. . . O Y V V . . .
+B

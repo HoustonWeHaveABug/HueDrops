@@ -1,0 +1,6 @@
+4 4
+* O O O
+B G V R
+R G B G
+V O B R
+O
