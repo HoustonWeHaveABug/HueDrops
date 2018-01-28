@@ -123,8 +123,8 @@ int main(void) {
 	for (i = 0; i < rows_n; i++) {
 		int j;
 		for (j = 0; j < columns_n; j++) {
-			int k;
 			if (tile->color) {
+				int k;
 				group_t *group = find_root(tile);
 				for (k = 0; k < groups_n && groups[k] != group; k++);
 				if (k == groups_n) {
@@ -382,10 +382,17 @@ void huedrops(int steps_idx) {
 		if (steps_stack_size < steps_stack_max) {
 			return;
 		}
-		if (steps_low1 > steps_low2) {
-			steps_low1--;
-		}
 		steps_low3 = steps_stack[steps_stack_size-1]->rolled;
+		if (color_target->rolls_n == 0) {
+			int k;
+			for (k = steps_stack_size-1; k >= 0 && steps_stack[k]->color != color_target && steps_stack[k]->rolled == steps_low3; k--);
+			if (k < 0 || steps_stack[k]->rolled < steps_low3) {
+				steps_low3++;
+			}
+		}
+		if (steps_low1 > steps_low2) {
+			steps_low3--;
+		}
 		for (j = steps_stack_size-1; j >= 0 && steps_stack[j]->rolled > steps_idx; j--) {
 			steps_stack[j]->rolled = tiles_n;
 		}
